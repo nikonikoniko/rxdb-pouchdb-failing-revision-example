@@ -11,7 +11,7 @@ export const testDb = async () => {
 
   const addDoc = async () =>
     db.docs.atomicUpsert(doc).then((d) => {
-      console.log("YES succeeded in upserting:", d.get());
+        console.log("addDoc() success", d.get());
     });
 
   const removeDoc = () =>
@@ -20,15 +20,15 @@ export const testDb = async () => {
       .where("id")
       .equals("id-hello")
       .remove()
-      .then(() => console.log("hello BYE removed success"))
-      .catch((e) => console.error(`hello FAIL removing the doc failed`, e));
+      .then(() => console.log("removeDoc() success"))
+      .catch((e) => console.error(`removeDoc() failed`, e));
 
   const printDocs = () =>
     db.docs
       .find()
       .exec()
       .then((ds) => Promise.all(ds.map((d) => d.get())))
-      .then((ds) => console.log("PRINTING docs", ds));
+      .then((ds) => console.log("printDocs()", ds));
 
   rxdb.addRxPlugin(RxDBQueryBuilderPlugin);
   pouchdb.addPouchPlugin(MemoryAdapter);
