@@ -14,7 +14,7 @@ This is what the browser console looks like:
 ``` javascript
 addDoc() success 
 printDocs() Array [ {…} ]
-removeDoc() success index.js:17
+removeDoc() success
 printDocs() Array []
 addDoc() success 
 printDocs() Array [ {…} ]
